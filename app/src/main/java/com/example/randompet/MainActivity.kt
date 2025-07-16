@@ -68,12 +68,15 @@ class MainActivity : AppCompatActivity() {
             override fun onSuccess(statusCode: Int, headers: Headers, json: JsonHttpResponseHandler.JSON) {
 
                 val petImageArray = json.jsonObject.getJSONArray("message")
+                //fetch each image in the array and add them to petList(mutableList)
                 for (i in 0 until petImageArray.length()){
                     petList.add(petImageArray.getString(i))
                 }
-
+                // Attach petList to PetAdapter
                 val adapter = PetAdapter(petList)
+                // Attach adapter the rvPet's adapter
                 rvPets.adapter = adapter
+                // Setup the layout...
                 rvPets.layoutManager = LinearLayoutManager(this@MainActivity)
             }
 

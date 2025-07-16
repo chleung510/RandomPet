@@ -8,15 +8,19 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
+// Extending the RecyclerView class with customized ViewHolder
 class PetAdapter(private val petList: List<String>): RecyclerView.Adapter<PetAdapter.ViewHolder>() {
+    // Nested class for extending RecyclerView Viewholder
     class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
         val petImage: ImageView
 
+        // Initialize whenever the class runs
         init {
             // Find our RecyclerView item's ImageView for future use
             petImage = view.findViewById(R.id.pet_image)
         }
     }
+
     // Create new views
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         // Create a new view, which defines the UI of the list item
